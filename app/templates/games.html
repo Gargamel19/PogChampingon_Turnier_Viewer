@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Games</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/games.css') }}">
+</head>
+<body>
+    <table id="games">
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>White Player</th>
+            <th>Black Player</th>
+        </tr>
+        {% for game in games %}
+            <tr>
+                <td onclick="window.open('{{ url_for( 'game', game_nr=game["ID"]) }}')" class="d{{ game["date"] }}">{{ game["date"] }}</td>
+                <td>{{ game["time"] }}</td>
+                <td onclick="window.open('{{ url_for( 'player', player_name=game["player_white"]) }}')">{{game["player_white"]}}</td>
+                <td onclick="window.open('{{ url_for( 'player', player_name=game["player_black"]) }}')">{{game["player_black"]}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Game: {{ player_white["name"] }} vs. {{ player_black["name"] }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/games.css') }}">
+</head>
+<body>
+
+    <table id="games">
+        <tr>
+            <td></td>
+            <th>Player White</th>
+            <th>Player Black</th>
+        </tr>
+        <tr>
+            <th>Name:</th>
+            <td onclick="window.location.href='{{ url_for( 'player', player_name=player_white["name"]) }}';">{{ player_white["name"] }}</td>
+            <td onclick="window.location.href='{{ url_for( 'player', player_name=player_black["name"]) }}';">{{ player_black["name"] }}</td>
+        </tr>
+        <tr>
+            <th>Elo:</th>
+            <td>{{ player_white["elo"] }}</td>
+            <td>{{ player_black["elo"] }}</td>
+        </tr>
+        <tr>
+            <th>Liga:</th>
+            <td onclick="window.open('{{ url_for( 'games', liga=player_white["liga"])}}')">{{ player_white["liga"] }}</td>
+            <td onclick="window.open('{{ url_for( 'games', liga=player_black["liga"])}}')">{{ player_black["liga"] }}</td>
+        </tr>
+        <tr>
+            <th>Gruppe:</th>
+            <td onclick="window.open('{{ url_for( 'games', liga=player_white["liga"], gruppe=player_white["gruppe"]) }}')">{{ player_white["gruppe"] }}</td>
+            <td onclick="window.open('{{ url_for( 'games', liga=player_black["liga"], gruppe=player_black["gruppe"]) }}')">{{ player_black["gruppe"] }}</td>
+        </tr>
+        {% if "lichess" in player_white or "lichess" in player_black %}
+        <tr>
+            <th>lichess.org:</th>
+            {% if "lichess" in player_white %}
+                <td><a href="{{ player_white["lichess"] }}" target="_blank">lichess.org</a></td>
+            {% endif %}
+            {% if "lichess" in player_black %}
+                <td><a href="{{ player_black["lichess"] }}" target="_blank">lichess.org</a></td>
+            {% endif %}
+        </tr>
+        {% endif %}
+
+        {% if "chesscom" in player_white or "lichess" in player_black %}
+        <tr>
+            <th>chess.com:</th>
+            {% if "chesscom" in player_white %}
+                <td><a href="{{ player_white["chesscom"] }}" target="_blank">chess.com</a></td>
+            {% endif %}
+            {% if "chesscom" in player_black %}
+                <td><a href="{{ player_black["chesscom"] }}" target="_blank">chess.com</a></td>
+            {% endif %}
+        </tr>
+        {% endif %}
+    </table>
+</body>
+</html>

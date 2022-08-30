@@ -1,0 +1,37 @@
+#games {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#games td, #games th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+
+#games tr:hover {background-color: #ddd;}
+
+#games th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+
+}.d03-09-2022{
+  background-color: #fbfbfb;
+}.d04-09-2022{
+  background-color: #808080;
+  color: #fbfbfb;
+}.d10-09-2022{
+  background-color: #fbfbfb;
+}.d11-09-2022{
+  background-color: #808080;
+  color: #fbfbfb;
+}.d17-09-2022{
+  background-color: #fbfbfb;
+}.d24-09-2022{
+  background-color: #808080;
+  color: #fbfbfb;
+}

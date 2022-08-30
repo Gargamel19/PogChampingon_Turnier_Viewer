@@ -1,0 +1,9 @@
+import os
+
+FLASK_BACKEND_IP = os.environ.get("FLASK_BACKEND_IP")
+FLASK_BACKEND_PORT = os.environ.get("FLASK_BACKEND_PORT")
+
+FLASK_FRONTEND_IP = os.environ.get("FLASK_FRONTEND_IP")
+FLASK_FRONTEND_PORT = os.environ.get("FLASK_FRONTEND_PORT")
+
+AUTH_TOKEN = os.environ.get("AUTH_TOKEN")

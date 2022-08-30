@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Player: {{ player["name"] }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/games.css') }}">
+</head>
+<body>
+    <table id="games">
+        <tr>
+            <th>Name:</th>
+            <td onclick=window.open("https://twitch.tv/{{ player["name"] }}")>{{ player["name"] }}</td>
+        </tr>
+        <tr>
+            <th>Beschreibung:</th>
+            <td>{{ player["beschreibung"] }}</td>
+        </tr>
+        <tr>
+            <th>Elo:</th>
+            <td>{{ player["elo"] }}</td>
+        </tr>
+        <tr>
+            <th>Liga:</th>
+            <td onclick="window.open('{{ url_for( 'games', liga=player["liga"])}}')">{{ player["liga"] }}</td>
+        </tr>
+        <tr>
+            <th>Gruppe:</th>
+            <td onclick="window.open('{{ url_for( 'games', liga=player["liga"], gruppe=player["gruppe"]) }}')">{{ player["gruppe"] }}</td>
+        </tr>
+        {% if "lichess" in player %}
+        <tr>
+            <th>lichess.org:</th>
+            <td><a href="{{ player["lichess"] }}" target="_blank">lichess.org</a></td>
+        </tr>
+        {% endif %}
+        {% if "chesscom" in player %}
+        <tr>
+            <th>chess.com:</th>
+            <td><a href="{{ player["chesscom"] }}" target="_blank">chess.com</a></td>
+        </tr>
+        {% endif %}
+    </table>
+</body>
+</html>
